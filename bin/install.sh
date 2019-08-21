@@ -12,12 +12,12 @@ _install_neovim () {
 
   echo "Installing neovim"
   # macOS
-  if [ $(uname -a) | $(fgrep -i Darwin) > /dev/null ]; then
+  if [ $(uname -a) | fgrep -i Darwin > /dev/null ]; then
     brew update
     brew install neovim
   # like debian
   elif [ $(type -p apt) > /dev/null ]; then
-	if [ $(uname -a) | $(fgrep -i "18.04") | $(fgrep -i "Ubuntu") ]; then
+	if [ $(uname -a) | fgrep -i "18.04" | fgrep -i "Ubuntu" ]; then
       sudo apt autoremove -y
       sudo apt update -y
       sudo apt install -y neovim
@@ -39,7 +39,7 @@ _install_neovim () {
     sudo yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
     sudo yum install -y neovim python3-neovim
   # Linux
-  elif [ $(uname) | $(fgrep -i Linux) > /dev/null ]; then
+  elif [ $(uname) | fgrep -i Linux > /dev/null ]; then
     curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
     chmod u+x nvim.appimage
     ./nvim.appimage
