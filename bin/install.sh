@@ -57,3 +57,5 @@ _install_neovim () {
   echo "Completed"
   echo "If you want to install plugin for neovim, run :PluginInstall after run neovim"
 }
+
+_install_neovim
