@@ -17,7 +17,7 @@ setup () {
   # Install git
   if [ ! $(type -p git) > /dev/null ]; then
     # macOS
-	if [ $(uname -a) | $(fgrep -i Darwin) > /dev/null ]; then
+	if [ $(uname -a) | fgrep -i Darwin > /dev/null ]; then
       brew update
       brew install git
     # like debian
