@@ -48,7 +48,7 @@ _install_neovim () {
   echo "Installed neovim"
 
   # config file
-  if ! $(ls $NEOVIM_DIR) > /dev/null; then
+  if ! ls $NEOVIM_DIR > /dev/null; then
 	  mkdir -p $NEOVIM_DIR
   fi
   cd $DOTFILES_RESOURCE
