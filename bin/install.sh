@@ -16,7 +16,7 @@ _install_neovim () {
     brew update
     brew install neovim
   # like debian
-  elif [ type -p apt > /dev/null ]; then
+  elif [ $(type -p apt) > /dev/null ]; then
     if [ uname -a | fgrep -i "18.04" | fgrep -i "Ubuntu" ]; then
       sudo apt autoremove -y
       sudo apt update -y
@@ -35,7 +35,7 @@ _install_neovim () {
       sudo easy_install3 -y pip
     fi
   # CentOS
-  elif [ type -p yum > /dev/null ]; then
+  elif [ $(type -p yum) > /dev/null ]; then
     sudo yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
     sudo yum install -y neovim python3-neovim
   # Linux
