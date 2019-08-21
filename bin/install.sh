@@ -55,5 +55,5 @@ _install_neovim () {
   ln -s init.vim $NEOVIM_DIR/init.vim
 
   echo "Completed"
-  echo "If you want to install plugin for neovim, run :PluginInstall after run neovim
+  echo "If you want to install plugin for neovim, run :PluginInstall after run neovim"
 }
