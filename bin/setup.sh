@@ -8,9 +8,9 @@ declare -r DOTFILES_BIN="$GIT_DIR/dotfiles/bin"
 declare -r DOTFILES_GIT="https://github.com/makura46/dotfiles.git"
 
 setup () {
-  echo "Installing dotfiles"
+  echo -e "Installing dotfiles\n"
 
-  echo "> mkdir -p $GIT_DIR"
+  echo -e "> mkdir -p $GIT_DIR\n"
   mkdir -p $GIT_DIR
   cd $GIT_DIR
 
@@ -33,14 +33,14 @@ setup () {
     else
       return 1
     fi
-    echo "Installed git"
+    echo -e "\nInstalled git\n"
   fi
 
   # Clone repository
   git clone "$DOTFILES_GIT"
   cd $DOTFILES_ROOT
 
-  echo "> $DOTFILES_BIN/install.sh"
+  echo -e "\n> $DOTFILES_BIN/install.sh"
   "$DOTFILES_BIN/install.sh"
 }
 
