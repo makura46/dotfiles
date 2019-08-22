@@ -27,7 +27,6 @@ setup () {
       sudo apt install -y git
     # CentOS
     elif type -p yum > /dev/null; then
-      sudo yum clean -y
       sudo yum update -y
       sudo yum install -y git
     else
