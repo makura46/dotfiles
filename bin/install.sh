@@ -54,6 +54,7 @@ _install_neovim () {
 	  mkdir -p $NEOVIM_DIR
   fi
   cd $DOTFILES_RESOURCE
+  echo -e "\n> ln -s $DOTFILES_RESOURCE/init.vim $NEOVIM_DIR/init.vim"
   ln -s $DOTFILES_RESOUCE/init.vim $NEOVIM_DIR/init.vim
 
   echo -e "\n>> Completed\n"
