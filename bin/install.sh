@@ -4,6 +4,8 @@ declare -r DOTFILES_ROOT=$HOME/github/dotfiles
 declare -r DOTFILES_RESOURCE=$HOME/github/dotfiles/resource
 
 declare -r NEOVIM_DIR=$HOME/.config/nvim
+declare -r VUNDLE_DIR=$HOME/.config/nvim/bundle/Vundle.vim
+declare -r VUNDLE_GIT="https://github.com/VundleVim/Vundle.vim.git"
 
 set -e
 
@@ -52,9 +54,14 @@ _install_neovim () {
 	  mkdir -p $NEOVIM_DIR
   fi
   cd $DOTFILES_RESOURCE
-  ln -s init.vim $NEOVIM_DIR/init.vim
+  ln -s $DOTFILES_RESOUCE/init.vim $NEOVIM_DIR/init.vim
 
-  echo "Completed"
+  echo ">> Completed"
+
+  # Vundle
+  echo "> Installing Vundle"
+  git clone $VUNDLE_GIT $VUNDLE_DIR
+
   echo "If you want to install plugin for neovim, run :PluginInstall after run neovim"
 }
 
