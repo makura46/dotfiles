@@ -12,7 +12,7 @@ set -e
 _install_neovim () {
   cd $DOTFILES_ROOT
 
-  echo "Installing neovim"
+  echo -e "\nInstalling neovim\n"
   # macOS
   if uname -a | fgrep -i Darwin > /dev/null; then
     brew update
@@ -47,23 +47,22 @@ _install_neovim () {
     ./nvim.appimage
   fi
 
-  echo "\nInstalled neovim"
+  echo -e "\nInstalled neovim"
 
   # config file
-  if ! ls $NEOVIM_DIR > /dev/null; then
+  if ! ls $NEOVIM_DIR &> /dev/null; then
 	  mkdir -p $NEOVIM_DIR
   fi
   cd $DOTFILES_RESOURCE
   ln -s $DOTFILES_RESOUCE/init.vim $NEOVIM_DIR/init.vim
 
-  echo "\n>> Completed\n"
+  echo -e "\n>> Completed\n"
 
   # Vundle
-  cd $VUNDLE_DIR
-  echo "> Installing Vundle"
+  echo -e "> Installing Vundle\n"
   git clone $VUNDLE_GIT $VUNDLE_DIR
 
-  echo "\n> If you want to install plugin for neovim, run :PluginInstall after run neovim"
+  echo -e "\n> If you want to install plugin for neovim, run :PluginInstall after run neovim"
 }
 
 _install_neovim
