@@ -47,7 +47,7 @@ _install_neovim () {
     ./nvim.appimage
   fi
 
-  echo "Installed neovim"
+  echo "\nInstalled neovim"
 
   # config file
   if ! ls $NEOVIM_DIR > /dev/null; then
@@ -56,13 +56,14 @@ _install_neovim () {
   cd $DOTFILES_RESOURCE
   ln -s $DOTFILES_RESOUCE/init.vim $NEOVIM_DIR/init.vim
 
-  echo ">> Completed"
+  echo "\n>> Completed\n"
 
   # Vundle
+  cd $VUNDLE_DIR
   echo "> Installing Vundle"
   git clone $VUNDLE_GIT $VUNDLE_DIR
 
-  echo "If you want to install plugin for neovim, run :PluginInstall after run neovim"
+  echo "\n> If you want to install plugin for neovim, run :PluginInstall after run neovim"
 }
 
 _install_neovim
