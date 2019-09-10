@@ -2,7 +2,7 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.config/nvim/bundle/Vundle.vim
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
@@ -33,6 +33,7 @@ Plugin 'posva/vim-vue'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
+filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 "
@@ -76,7 +77,7 @@ autocmd!
 	autocmd BufRead,BufNewFile *.css setlocal expandtab tabstop=2 shiftwidth=2 autoindent smartindent
 	autocmd BufRead,BufNewFile *.js setlocal expandtab tabstop=2 shiftwidth=2 autoindent smartindent
 	autocmd BufRead,BufNewFile *.rb setlocal tabstop=2 shiftwidth=2 autoindent smartindent
-	autocmd BufRead,BufNewFile *.sh setlocal tabstop=4 shiftwidth=4 autoindent smartindent
+	autocmd BufRead,BufNewFile *.sh setlocal tabstop=2 shiftwidth=2 autoindent smartindent
 	autocmd BufRead,BufNewFile *.go setlocal tabstop=4 shiftwidth=4 autoindent smartindent
 	autocmd BufRead,BufNewFile *.php setlocal tabstop=4 shiftwidth=4 autoindent smartindent
 	autocmd BufRead,BufNewFile *.tmpl setlocal expandtab tabstop=2 shiftwidth=2 autoindent smartindent
