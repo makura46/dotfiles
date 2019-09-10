@@ -10,60 +10,46 @@ declare -r VUNDLE_GIT="https://github.com/VundleVim/Vundle.vim.git"
 set -e
 
 _install_neovim () {
-  cd $DOTFILES_ROOT
+	cd $DOTFILES_ROOT
 
-  echo -e "\nInstalling neovim\n"
-  # macOS
-  if uname -a | fgrep -i Darwin > /dev/null; then
-    brew update
-    brew install neovim
-  # like debian
-  elif type -p apt > /dev/null; then
-	#if uname -a | fgrep -i "18.04" | fgrep -i "Ubuntu"; then
-      sudo apt autoremove -y
-      sudo apt update -y
-      sudo apt install -y neovim
-    # Ubuntu 18.04 than less
-    #else
-    #  sudo apt-get autoremove -y
-    #  sudo apt-get install -y software-properties-common
-    #  sudo apt-get install -y python-software-properties
-    #  sudo add-apt-repository -y ppa:neovim-ppa/stable
-    #  sudo apt-get update -y
-    #  sudo apt-get install -y neovim
-    #  sudo apt-get install -y python-dev python-pip python3-dev python3-pip
-    #  sudo apt-get install -y python-dev python-pip python3-dev
-    #  sudo apt-get install -y python3-setuptools
-    #  sudo easy_install3 -y pip
-    #fi
-  # CentOS
-  elif type -p yum > /dev/null; then
-    sudo yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-    sudo yum install -y neovim python3-neovim
-  # Linux
-  elif uname | fgrep -i Linux > /dev/null; then
-    curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
-    chmod u+x nvim.appimage
-    ./nvim.appimage
-  fi
+	echo -e "\nInstalling neovim\n"
+	# macOS
+	if uname -a | fgrep -i Darwin > /dev/null; then
+		brew update
+		brew install neovim
+		# like debian
+	elif type -p apt > /dev/null; then
+		sudo apt autoremove -y
+		sudo apt update -y
+		sudo apt install -y neovim
+		# CentOS
+	elif type -p yum > /dev/null; then
+		sudo yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+		sudo yum install -y neovim python3-neovim
+		# Linux
+	elif uname | fgrep -i Linux > /dev/null; then
+		curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
+		chmod u+x nvim.appimage
+		./nvim.appimage
+	fi
 
-  echo -e "\nInstalled neovim"
+	echo -e "\nInstalled neovim"
 
-  # config file
-  if ! ls $NEOVIM_DIR &> /dev/null; then
-	  mkdir -p $NEOVIM_DIR
-  fi
-  cd $DOTFILES_RESOURCE
-  echo -e "\n> ln -s $DOTFILES_RESOURCE/init.vim $NEOVIM_DIR/init.vim"
-  ln -s $DOTFILES_RESOURCE/init.vim $NEOVIM_DIR/init.vim
+	# config file
+	if ! ls $NEOVIM_DIR &> /dev/null; then
+		mkdir -p $NEOVIM_DIR
+	fi
+	cd $DOTFILES_RESOURCE
+	echo -e "\n> ln -s $DOTFILES_RESOURCE/init.vim $NEOVIM_DIR/init.vim"
+	ln -s $DOTFILES_RESOURCE/init.vim $NEOVIM_DIR/init.vim
 
-  echo -e "\n>> Completed\n"
+	echo -e "\n>> Completed\n"
 
-  # Vundle
-  echo -e "> Installing Vundle\n"
-  git clone $VUNDLE_GIT $VUNDLE_DIR
+	# Vundle
+	echo -e "> Installing Vundle\n"
+	git clone $VUNDLE_GIT $VUNDLE_DIR
 
-  echo -e "\n> If you want to install plugin for neovim, run :PluginInstall after run neovim"
+	echo -e "\n> If you want to install plugin for neovim, run :PluginInstall after run neovim"
 }
 
 _install_neovim
